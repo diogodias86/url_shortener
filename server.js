@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 
 mongoose.connect(
-    'mongodb+srv://admin:admin@cluster01-8jafl.mongodb.net/url_shortener?retryWrites=true&w=majority', {
+    'mongodb_url', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).catch((err) => {
