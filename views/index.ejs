@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortener</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form action="/shortUrls" method="POST" class="my-4 form-inline">
+            <label for="fullUrl" class="sr-only">URL</label>
+            <input type="url" id="fullUrl" name="fullUrl" placeholder="URL" class="form-control mr-2 col">
+            <button class="btn btn-success" type="submit">Short It</button>
+        </form>
+
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Full Url</th>
+                    <th>Short Url</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% urls.forEach(row => { %>
+                <tr>
+                    <th><a href="<%= row.full %>"><%= row.full %></a></th>
+                    <th><a href="<%= row.short %>"><%= row.short %></a></th>
+                    <th><%= row.clicks %></th>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
